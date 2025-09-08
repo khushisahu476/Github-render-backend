@@ -87,7 +87,7 @@ async function fetchRepositoriesForCurrentUser(req, res) {
     const repositories = await Repository.find({ owner: userID });
 
     if (!repositories || repositories.length == 0) {
-      return res.status(404).json({ error: "User Repositories not found!" });
+      return res.json([]);
     }
     console.log(repositories);
     res.json({ message: "Repositories found!", repositories });
